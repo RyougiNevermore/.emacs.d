@@ -10,8 +10,7 @@
 (setq debug-on-error t)
 
 ;; lisp
-(add-to-list 'load-path "~/.emacs.d/lisp/")
-
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 ;; spell check support
 (defconst *spell-check-support-enabled* t)
@@ -29,6 +28,7 @@
 ;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
 (require 'basic)
+(require 'system-kbd)
 (require 'packages-elpa)
 (require 'theme)
 (require 'recentfile)
