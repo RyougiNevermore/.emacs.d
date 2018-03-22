@@ -5,17 +5,21 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-(package-initialize)
 
-(setq debug-on-error t)
+(when (version< emacs-version "24.4")
+  (error "This requires Emacs 24.4 and above!"))
 
-;; lisp
-(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+;; Optimize loading performance
+(defvar default-file-name-handler-alist file-name-handler-alist)
+(setq file-name-handler-alist nil)
+(setq gc-cons-threshold 30000000)
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            "Restore defalut values after init"
+            (setq file-name-handler-alist default-file-name-handler-alist)
+            (setq gc-cons-threshold 800000)))
 
-;; spell check support
-(defconst *spell-check-support-enabled* t)
-;; system is darwin 
-(defconst *is-a-mac* (eq system-type 'darwin))
+
 
 
 
@@ -23,20 +27,74 @@
 ;; Bootstrap config
 ;;----------------------------------------------------------------------------
 
-
-;;----------------------------------------------------------------------------
-;; Load configs for specific features and modes
-;;----------------------------------------------------------------------------
-(require 'basic)
-(require 'system-kbd)
-(require 'packages-elpa)
-(require 'theme)
-(require 'recentfile)
-(require 'init-company)
+;; Load path
+(add-to-list 'load-path (expand-file-name "lisp-core" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "lisp-preference" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "lisp-module" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 
 
+
+
+;; Constants
+(require 'core-const)
+
+;; Customization
+(require 'core-custom)
+
+;; package
+;; Without this comment Emacs25 adds (package-initialize) here
+(package-initialize)
+(require 'core-package)
+
+
 ;;----------------------------------------------------------------------------
-;; Load custom file
+;; Core
+;;---------------------------------------------------------------------------
+
+;; Constants
+(require 'core-const)
+
+;; Customization
+(require 'core-custom)
+
+;; package
+;; Without this comment Emacs25 adds (package-initialize) here
+(package-initialize)
+(require 'core-package)
+
+
 ;;----------------------------------------------------------------------------
-(setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
-(load-file custom-file)
+;; Preferences
+;;----------------------------------------------------------------------------
+(require 'preference-basic)
+(require 'preference-ui)
+(require 'preference-edit)
+
+(require 'preference-ivy)
+(require 'preference-company)
+(require 'preference-yasnippet)
+(require 'preference-dired)
+(require 'preference-highlight)
+(require 'preference-ibuffer)
+(require 'preference-kill-ring)
+(require 'preference-window)
+
+(require 'preference-eshell)
+(require 'preference-shell)
+(require 'preference-project)
+
+(require 'preference-func)
+(require 'preference-utils)
+
+;;----------------------------------------------------------------------------
+;; Programming
+;;----------------------------------------------------------------------------
+
+(require 'module-markdown)
+(require 'module-org)
+
+
+;;----------------------------------------------------------------------------
+;; init.el ends here
+;;----------------------------------------------------------------------------
