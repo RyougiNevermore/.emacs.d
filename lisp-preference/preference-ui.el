@@ -119,6 +119,26 @@
 ;; icon
 (use-package all-the-icons)
 
+;; symon tiny graphical system monitor
+(use-package symon
+  :defer t
+  :init 
+  (setq symon-monitors
+   (cond ((memq system-type '(gnu/linux cygwin))
+         '(symon-linux-memory-monitor
+           symon-linux-cpu-monitor))
+        ((memq system-type '(darwin))
+         '(symon-darwin-memory-monitor
+           symon-darwin-cpu-monitor))
+        ((memq system-type '(windows-nt))
+         '(symon-windows-memory-monitor
+           symon-windows-cpu-monitor))))
+  :config (symon-mode) 
+  :custom 
+  (symon-delay 5.0 "symon-delay")
+)
+
+(symon-mode)
 
 (provide 'preference-ui)
 
