@@ -11,5 +11,6 @@
 ;; (setq my-theme 'dark)                     ; Color theme: default, dark, light or daylight
 ;; (setq my-emoji-enabled t)                 ; Enable emoji: t or nil
 ;; (setq my-benchmark-enabled t)             ; Enable initialization benchmark: t or nil
-
+;; (setq my-cua-key-super t)             ; Make super key to be CUA leader key 
+;; (setq my-org-agenda-dir "~/org")             ; Org dir
 ;;; custom.el ends here

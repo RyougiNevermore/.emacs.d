@@ -116,6 +116,9 @@
     :init (add-hook 'after-init-hook #'global-linum-mode)
     :config (setq linum-format "%4d ")))
 
+;; icon
+(use-package all-the-icons)
+
 
 (provide 'preference-ui)
 

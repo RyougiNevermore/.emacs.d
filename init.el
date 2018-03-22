@@ -20,6 +20,13 @@
             (setq gc-cons-threshold 800000)))
 
 
+
+
+
+;;----------------------------------------------------------------------------
+;; Bootstrap config
+;;----------------------------------------------------------------------------
+
 ;; Load path
 (add-to-list 'load-path (expand-file-name "lisp-core" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "lisp-preference" user-emacs-directory))
@@ -27,9 +34,24 @@
 (add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 
 
+
+
+;; Constants
+(require 'core-const)
+
+;; Customization
+(require 'core-custom)
+
+;; package
+;; Without this comment Emacs25 adds (package-initialize) here
+(package-initialize)
+(require 'core-package)
+
+
 ;;----------------------------------------------------------------------------
-;; Bootstrap config
-;;----------------------------------------------------------------------------
+;; Core
+;;---------------------------------------------------------------------------
+
 ;; Constants
 (require 'core-const)
 
@@ -47,13 +69,30 @@
 ;;----------------------------------------------------------------------------
 (require 'preference-basic)
 (require 'preference-ui)
+(require 'preference-edit)
 
+(require 'preference-ivy)
+(require 'preference-company)
+(require 'preference-yasnippet)
+(require 'preference-dired)
+(require 'preference-highlight)
+(require 'preference-ibuffer)
+(require 'preference-kill-ring)
+(require 'preference-window)
+
+(require 'preference-eshell)
+(require 'preference-shell)
+(require 'preference-project)
+
+(require 'preference-func)
+(require 'preference-utils)
 
 ;;----------------------------------------------------------------------------
 ;; Programming
 ;;----------------------------------------------------------------------------
 
-
+(require 'module-markdown)
+(require 'module-org)
 
 
 ;;----------------------------------------------------------------------------

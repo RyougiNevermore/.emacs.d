@@ -75,6 +75,16 @@
   "Enable the init benchmark or not."
   :type 'boolean)
 
+;; my-cua-key-super
+(defcustom my-cua-key-super nil
+  "Enable the CUA to be Super key or not."
+  :type 'boolean)
+
+;; my-org-agenda-dir
+(defcustom my-org-agenda-dir "~/org"
+  "Set Org agenda dir."
+  :type 'string)
+
 
 ;; For Emacs devel
 ;; e.g. release is 24.5 or 25.1, while devel build is 26.0.90

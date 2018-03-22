@@ -41,8 +41,8 @@
 (setq make-backup-files nil)
 ;; disable auto save
 (setq auto-save-default nil)
-;; enable delete selections
-(delete-selection-mode t)
+;; deleting files go to OS's trash folder
+(setq delete-by-moving-to-trash t)
 ;; disable ring bell
 (setq ring-bell-function 'ignore)
 ;; enable auto revert
@@ -58,33 +58,6 @@
 	     ad-do-it))))
 
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
-
-;; key binding of edit for linux, use <Super> key.
-(when (or sys/linuxp sys/linux-x-p)
-  ;; select all 
-  (bind-key* "s-a" #'mark-whole-buffer)
-  ;; save buffer
-  (bind-key* "s-s" #'save-buffer)
-  ;; copy
-  (bind-key* "s-c" #'kill-ring-save)
-  ;; paste
-  (bind-key* "s-v" #'yank)
-  ;; cut
-  (bind-key* "s-x" #'kill-region)
-  ;; undo
-  (bind-key* "s-z" #'undo)
-
- )
-
-;; Key Modifiers for win32
-(when sys/win32p
-  ;; make PC keyboard's Win key or other to type Super or Hyper
-  ;; (setq w32-pass-lwindow-to-system nil)
-  (setq w32-lwindow-modifier 'super)    ; Left Windows key
-  (setq w32-apps-modifier 'hyper)       ; Menu/App key
-
-  ;; (w32-register-hot-key [s-])
-  (w32-register-hot-key [s-t]))
 
 
 ;; exec path from shell for mac or linux
