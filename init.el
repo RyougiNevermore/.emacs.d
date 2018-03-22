@@ -34,20 +34,6 @@
 (add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 
 
-
-
-;; Constants
-(require 'core-const)
-
-;; Customization
-(require 'core-custom)
-
-;; package
-;; Without this comment Emacs25 adds (package-initialize) here
-(package-initialize)
-(require 'core-package)
-
-
 ;;----------------------------------------------------------------------------
 ;; Core
 ;;---------------------------------------------------------------------------
