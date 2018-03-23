@@ -80,6 +80,19 @@
 (require 'module-markdown)
 (require 'module-org)
 
+(require 'module-git)
+(require 'module-svn)
+
+(require 'module-flycheck)
+
+(require 'module-go)
+
+(require 'module-web)
+
+(require 'module-c)
+
+(require 'module-elisp)
+
 
 ;;----------------------------------------------------------------------------
 ;; init.el ends here
