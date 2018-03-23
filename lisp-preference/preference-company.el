@@ -72,6 +72,8 @@
       (append (if (consp backend) backend (list backend))
               '(:with company-yasnippet))))
 
-  (setq company-backends (mapcar #'company-backend-with-yas company-backends)))
+  (setq company-backends (mapcar #'company-backend-with-yas company-backends))
+  
+  )
 
 (provide 'preference-company)

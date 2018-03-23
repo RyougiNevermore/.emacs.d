@@ -46,8 +46,17 @@
 ;;
 (use-package go-mode
   :bind (:map go-mode-map
-              ("M-." . godef-jump)
+              ("C-c C-j" . godef-jump)
+              ("C-x 4 C-c C-j" . godef-jump-other-window)
+
+              ("C-c C-a" . go-import-add)
               ("C-c C-r" . go-remove-unused-imports)
+
+              ("C-c C-f f" . go-goto-function)
+              ("C-c C-f n" . go-goto-function-name)
+              ("C-c C-f r" . go-goto-return-values)
+              ("C-c C-f m" . go-goto-method-receiver)
+              
               ("<f1>" . godoc-at-point))
   :config
   ;; `goimports' or `gofmt'
@@ -70,8 +79,13 @@
 
   (use-package go-tag
     :bind (:map go-mode-map
-                ("C-c t" . go-tag-add)
-                ("C-c T" . go-tag-remove)))
+                ("C-c C-t a" . go-tag-add)
+                ("C-c C-t r" . go-tag-remove)))
+
+
+  (use-package go-errcheck
+    :bind (:map go-mode-map 
+                ("C-c e" . go-errcheck)))
 
   (use-package gotest
     :bind (:map go-mode-map
@@ -86,7 +100,8 @@
 
   (with-eval-after-load 'company
     (use-package company-go
-      :init (cl-pushnew (company-backend-with-yas 'company-go) company-backends)))
+      :init (cl-pushnew (company-backend-with-yas 'company-go) company-backends)
+    ))
 
   (with-eval-after-load 'projectile
     ;; M-x `go-projectile-install-tools'
@@ -97,8 +112,7 @@
       (add-hook 'go-mode-hook #'go-projectile-mode))))
 
 
-
-(with-eval-after-load 'go-mode
-    (use-package flymake-go))
+;;(with-eval-after-load 'go-mode
+;;    (use-package flymake-go))
 
 (provide 'module-go)

@@ -66,8 +66,10 @@
     :init
     (setq exec-path-from-shell-check-startup-files nil)
     (setq exec-path-from-shell-variables '("PATH" "MANPATH" "PYTHONPATH" "GOPATH"))
-    (setq exec-path-from-shell-arguments '("-l"))
+    ;;(setq exec-path-from-shell-arguments '("-l"))
     (exec-path-from-shell-initialize)))
+
+
 
 
 ;; save place
