@@ -45,17 +45,17 @@
 ;; key binding of cua, use <Super> key.
 (when my-cua-key-super 
   ;; select all 
-  (bind-key* "s-a" #'mark-whole-buffer)
+  (bind-key* "s-a" 'mark-whole-buffer)
   ;; save buffer
-  (bind-key* "s-s" #'save-buffer)
+  (bind-key* "s-s" 'save-buffer)
   ;; copy
-  (bind-key* "s-c" #'kill-ring-save)
+  (bind-key* "s-c" 'kill-ring-save)
   ;; paste
-  (bind-key* "s-v" #'yank)
+  (bind-key* "s-v" 'yank)
   ;; cut
-  (bind-key* "s-x" #'kill-region)
+  (bind-key* "s-x" 'kill-region)
   ;; undo
-  (bind-key* "s-z" #'undo)
+  (bind-key* "s-z" 'undo)
  )
 
 ;; set default major to be text-mode
