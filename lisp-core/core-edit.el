@@ -141,7 +141,6 @@
   :config (setq anzu-replace-to-string-separator
                 (if (char-displayable-p ?→) " → " " -> ")))
 
-
 (provide 'core-edit)
 
 ;;----------------------------------------------------------------------------
