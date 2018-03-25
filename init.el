@@ -86,15 +86,39 @@
 ;; High Light
 (require 'core-highlight)
 
+;;  Recent file
+(require 'core-recentf)
+
 ;;----------------------------------------------------------------------------
 ;; Mode
 ;;----------------------------------------------------------------------------
 
-;;
-(require 'mode-which-key)
+
+;; Projectile
+(require 'mode-projectile)
+
+;; Ivy
+(require 'mode-ivy)
 
 ;; Evil
 (require 'mode-evil)
+
+;; Which key
+(require 'mode-which-key)
+
+;; Company
+
+;; Yasnippet
+
+;; Dired
+
+;; Kill-ring
+
+;; Window
+
+;; eshell
+
+;; shell
 
 
 

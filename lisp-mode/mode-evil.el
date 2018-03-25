@@ -15,6 +15,10 @@
 ;;
 ;;; Code:
 
+(eval-when-compile
+  (require 'core-const)
+  (require 'core-custom)
+  (require 'core-package))
 
 ;; Evil
 (use-package evil
@@ -34,12 +38,13 @@
     :after evil
     :init
     (global-evil-leader-mode)
-    :config
-        ;;(evil-leader-mode)
-        
+    :config   
     (evil-leader/set-leader "<SPC>")
     (evil-leader/set-key
         "ff" 'find-file
+        ;; TODO: ADD MORE KEYS 
+        ;; https://github.com/emacs-evil/evil-collection/blob/master/evil-collection.el
+        ;; add ivy keys
     )
 )
 

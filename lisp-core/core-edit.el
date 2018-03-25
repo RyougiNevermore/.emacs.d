@@ -15,6 +15,12 @@
 ;;
 ;;; Code:
 
+
+(eval-when-compile
+  (require 'core-const)
+  (require 'core-custom)
+  (require 'core-package))
+
 ;; Explicitly set the prefered coding systems to avoid annoying prompt
 ;; from emacs (especially on Microsoft Windows)
 (prefer-coding-system 'utf-8)

@@ -13,7 +13,7 @@
 ;; Email address
 (setq my-mail-address "ryougi.nevermore@hotmail.com")
 ;; Package repo: melpa (default), emacs-china or tuna
-(setq my-package-archives 'melpa)
+(setq my-package-archives 'emacs-china)
 ;; Enable emoji: t or nil
 (setq my-emoji-enabled t)
 ;; Enable initialization benchmark: t or nil

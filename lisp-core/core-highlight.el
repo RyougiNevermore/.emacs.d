@@ -16,7 +16,10 @@
 ;;; Code:
 
 
-
+(eval-when-compile
+  (require 'core-const)
+  (require 'core-custom)
+  (require 'core-package))
 
 ;; Highlight the current line
 (use-package hl-line
