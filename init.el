@@ -106,6 +106,9 @@
 ;; Which key
 (require 'mode-which-key)
 
+;; Popwin
+(require 'mode-popwin)
+
 ;; Company
 
 ;; Yasnippet
