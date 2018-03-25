@@ -80,7 +80,7 @@
 ;; Edit
 (require 'core-edit)
 
-;; UI
+;; UI TODO: TREE
 (require 'core-ui)
 
 ;; High Light
@@ -106,29 +106,39 @@
 ;; Which key
 (require 'mode-which-key)
 
-;; Popwin
-(require 'mode-popwin)
+;; Window
+(require 'mode-window)
 
 ;; Company
 
 ;; Yasnippet
 
+;; Flycheck
+
 ;; Dired
 
 ;; Kill-ring
 
-;; Window
+;; Search
 
 ;; eshell
 
-;; shell
+;; Shell
 
+;; VCS
+
+;; Dictionay
 
 
 ;;----------------------------------------------------------------------------
-;; Programming
+;; Lang
 ;;----------------------------------------------------------------------------
 
+;; GO
+
+;; WEB
+
+;; NODEJS
 
 
 
