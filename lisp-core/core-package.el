@@ -1,11 +1,5 @@
 ;; core-package.el --- Desfine constants.	-*- lexical-binding: t -*-
 ;;
-;; Author: Ryougi Nevermore <ryougi.nevermore@hotmail.com>
-;; Version: 0.0.1
-;; URL: https://github.com/RyougiNevermore/.emacs.d
-;; Keywords:
-;; Compatibility:
-;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
@@ -13,24 +7,17 @@
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;; This program is free software; you can redistribute it and/or
-;; modify it under the terms of the GNU General Public License as
-;; published by the Free Software Foundation; either version 3, or
-;; (at your option) any later version.
-;;
-;; This program is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-;; General Public License for more details.
+;;; License:
+;;             GNU GENERAL PUBLIC LICENSE
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
 ;;
 ;;; Code:
 
 (eval-when-compile (require 'core-custom))
 
-;; FIXME: DO NOT copy package-selected-packages to init/custom file forcibly.
-;; https://github.com/jwiegley/use-package/issues/383#issuecomment-247801751
+
 (with-eval-after-load 'package
   (defun package--save-selected-packages (&optional value)
     "Set and (don't!) save `package-selected-packages' to VALUE."
@@ -39,8 +26,7 @@
     (unless after-init-time
       (add-hook 'after-init-hook #'package--save-selected-packages))))
 
-;; ELPA: refer to https://elpa.emacs-china.org/
-;;
+;; ELPA
 (cond
  ((eq my-package-archives 'melpa)
   (setq package-archives '(("gnu"   . "https://elpa.gnu.org/packages/")
@@ -95,6 +81,8 @@
   (setq paradox-automatically-star nil)
   (setq paradox-display-star-count nil))
 
-(provide 'core-package)
+(provide 'mode-package)
 
-
+;;----------------------------------------------------------------------------
+;; core-package.el ends here
+;;----------------------------------------------------------------------------

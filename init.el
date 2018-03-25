@@ -3,7 +3,7 @@
 ;;
 ;; Filename: init.el
 ;; Description:
-;; Author: Ryougi Nevermore
+;; Author: Ryougi Nevermore <ryougi.nevermore@hotmail.com>
 ;; Version: 1.1.0
 ;; Maintainer:
 ;; Created: 2018-03-25
@@ -52,6 +52,8 @@
 ;; Bootstrap config
 ;;----------------------------------------------------------------------------
 
+
+
 ;; Load path
 (add-to-list 'load-path (expand-file-name "lisp-core" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "lisp-mode" user-emacs-directory))
@@ -67,15 +69,15 @@
 ;; Customization
 (require 'core-custom)
 
-;; package
-;; Without this comment Emacs25 adds (package-initialize) here
+;; Package
 (package-initialize)
 (require 'core-package)
-
 
 ;;----------------------------------------------------------------------------
 ;; Mode
 ;;----------------------------------------------------------------------------
+
+
 
 
 ;;----------------------------------------------------------------------------
