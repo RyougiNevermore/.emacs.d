@@ -81,7 +81,7 @@
   (setq paradox-automatically-star nil)
   (setq paradox-display-star-count nil))
 
-(provide 'mode-package)
+(provide 'core-package)
 
 ;;----------------------------------------------------------------------------
 ;; core-package.el ends here
