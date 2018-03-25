@@ -20,6 +20,9 @@
   (require 'core-custom)
   (require 'core-package))
 
+  ;; icon
+(use-package all-the-icons)
+
 ;; theme
 (use-package challenger-deep-theme
     :init (load-theme 'challenger-deep t)
@@ -57,8 +60,7 @@
   
 )
 
-;; icon
-(use-package all-the-icons)
+
 
 (provide 'core-ui)
 ;;----------------------------------------------------------------------------
