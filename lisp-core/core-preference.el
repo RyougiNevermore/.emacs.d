@@ -1,4 +1,4 @@
-;; core-preference.el --- Desfine constants.	-*- lexical-binding: t -*-
+;; core-preference.el	-*- lexical-binding: t -*-
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

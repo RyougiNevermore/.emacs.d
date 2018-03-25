@@ -1,4 +1,4 @@
-;;; custom.el --- user customization file    -*- no-byte-compile: t -*-
+;;; custom.el  -*- no-byte-compile: t -*-
 ;;; Commentary:
 ;;;       Edit custom.el and change the configurations,
 ;;;       then restart Emacs.

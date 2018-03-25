@@ -70,11 +70,15 @@
 (require 'core-custom)
 
 ;; Package
-(package-initialize)
+;;(package-initialize)
 (require 'core-package)
 
 ;; Preferences
 (require 'core-preference)
+
+
+;; Edit
+(require 'core-edit)
 
 ;;----------------------------------------------------------------------------
 ;; Mode

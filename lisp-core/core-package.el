@@ -1,4 +1,4 @@
-;; core-package.el --- Desfine constants.	-*- lexical-binding: t -*-
+;; core-package.el	-*- lexical-binding: t -*-
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -26,6 +26,7 @@
     (unless after-init-time
       (add-hook 'after-init-hook #'package--save-selected-packages))))
 
+
 ;; ELPA
 (cond
  ((eq my-package-archives 'melpa)
@@ -44,6 +45,7 @@
 
 
 ;; Initialize packages
+(require 'package)
 (setq package-enable-at-startup nil)    ; To prevent initialising twice
 (package-initialize)
 
@@ -71,15 +73,6 @@
     :init
     (benchmark-init/activate)
     (add-hook 'after-init-hook #'benchmark-init/deactivate)))
-
-;; A mondern package interface
-(use-package paradox
-  :init (defalias 'upgrade-packages 'paradox-upgrade-packages)
-  :config
-  (setq paradox-github-token t)
-  (setq paradox-execute-asynchronously t)
-  (setq paradox-automatically-star nil)
-  (setq paradox-display-star-count nil))
 
 (provide 'core-package)
 

@@ -1,4 +1,4 @@
-;; core-const.el --- Desfine constants.	-*- lexical-binding: t -*-
+;; core-const.el	-*- lexical-binding: t -*-
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;

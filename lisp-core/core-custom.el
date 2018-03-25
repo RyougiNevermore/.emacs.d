@@ -1,4 +1,4 @@
-;; core-custom.el --- Initialize custom configurations.	-*- lexical-binding: t -*-
+;; core-custom.el	-*- lexical-binding: t -*-
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
