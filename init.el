@@ -31,6 +31,13 @@
 ;; Version required
 ;;----------------------------------------------------------------------------
 
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (when (version< emacs-version "25.0")
   (error "This requires Emacs 25.0 and above!"))
 
@@ -70,12 +77,10 @@
 (require 'core-custom)
 
 ;; Package
-;;(package-initialize)
 (require 'core-package)
 
 ;; Preferences
 (require 'core-preference)
-
 
 ;; Edit
 (require 'core-edit)
@@ -88,6 +93,9 @@
 
 ;;  Recent file
 (require 'core-recentf)
+
+;; Functions
+(require 'core-func)
 
 ;;----------------------------------------------------------------------------
 ;; Mode

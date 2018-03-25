@@ -76,10 +76,18 @@
 
 ;; Move to the beginning/end of line or code
 (use-package mwim
-    :commands (mwim)
-    :bind (
-        ("C-a" . mwim-beginning-of-code-or-line)
-        ("C-e" . mwim-end-of-code-or-line)
+    :defer t
+    :init
+    (progn
+       
+	    (global-set-key (kbd "C-a") 'mwim-beginning-of-code-or-line)
+	    (global-set-key (kbd "C-a") 'mwim-beginning-of-line-or-code)
+        
+
+        
+	    (global-set-key (kbd "C-e") 'mwim-end-of-code-or-line)
+	    (global-set-key (kbd "C-e") 'mwim-end-of-line-or-code)
+        
     )
 )
 
