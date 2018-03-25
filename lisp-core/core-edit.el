@@ -50,6 +50,8 @@
   (bind-key* "s-x" 'kill-region)
   ;; undo
   (bind-key* "s-z" 'undo)
+  ;; backward-kill-word
+  (bind-key* "C-w" 'backward-kill-word)
  )
 
 ;; Smart show parent
@@ -74,8 +76,12 @@
 
 ;; Move to the beginning/end of line or code
 (use-package mwim
-  :bind (("C-a" . mwim-beginning-of-code-or-line)
-         ("C-e" . mwim-end-of-code-or-line)))
+    :commands (mwim)
+    :bind (
+        ("C-a" . mwim-beginning-of-code-or-line)
+        ("C-e" . mwim-end-of-code-or-line)
+    )
+)
 
 ;; Treat undo history as a tree
 (use-package undo-tree

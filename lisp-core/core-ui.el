@@ -40,9 +40,17 @@
   :init (add-hook 'after-init-hook #'spaceline-spacemacs-theme)
   :config
   (setq spaceline-pre-hook #'powerline-reset) ; Fix for changing themes
-  (setq spaceline-highlight-face-func 'spaceline-highlight-face-modified)
+  (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
   (setq powerline-default-separator (if window-system 'arrow 'utf-8))
   (setq powerline-image-apple-rgb sys/mac-x-p)
+  (setq spaceline-workspace-numbers-unicode t)
+  (spaceline-info-mode t)
+  (spaceline-toggle-window-number-on)
+  (spaceline-toggle-evil-state-on)
+  (spaceline-toggle-version-control-on)
+  (spaceline-toggle-version-control-on)
+  
+
   
 )
 
