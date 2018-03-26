@@ -129,7 +129,9 @@
   )
 )
 
-
+;; icon
+ ;; after install -> M-x all-the-icons-install-fonts
+(use-package all-the-icons)
 
 (provide 'core-preference)
 

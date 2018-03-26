@@ -82,7 +82,7 @@
 (require 'core-edit)
 
 ;; UI TODO: TREE
-;;(require 'core-modeline)
+(require 'core-modeline)
 
 ;; High Light
 ;;(require 'core-highlight)
