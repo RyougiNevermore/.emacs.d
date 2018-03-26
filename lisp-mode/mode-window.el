@@ -18,7 +18,8 @@
 (eval-when-compile
   (require 'core-const)
   (require 'core-custom)
-  (require 'core-package))
+  (require 'core-package)
+)
 
 ;; Numbered window shortcuts
 (use-package window-numbering
@@ -58,8 +59,7 @@
             ("\*flycheck errors\*.+*$" :regexp t :position bottom :stick t :noselect nil)
 
             ;; Youdao dict
-            ("*Youdao Dictionary*" :dedicated t :position bottom)
-
+            ;;("*Youdao Dictionary*" :dedicated t :position bottom)
             
             ;; List
             ("*Colors*" :dedicated t :position bottom)
@@ -104,15 +104,8 @@
             ("*ert*" :dedicated t :position bottom :stick t :noselect nil)
             ("*nosetests*" :dedicated t :position bottom :stick t :noselect nil)
         )
-          
     )
-          
-          
 )
-
-
-
-
 
 (provide 'mode-window)
 

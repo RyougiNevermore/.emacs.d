@@ -56,9 +56,7 @@
       :diminish projectile-rails-mode
       :init (projectile-rails-global-mode 1)
     )
-
   )
-    
 )
 
 ;; Group ibuffer's list by project root

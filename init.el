@@ -100,30 +100,39 @@
 ;; Mode
 ;;----------------------------------------------------------------------------
 
+;; Which key
+(require 'mode-which-key)
+
 ;; Projectile
 (require 'mode-projectile)
 
 ;; Ivy
 (require 'mode-ivy)
 
-;; Evil
-;;(require 'mode-evil)
-
-;; Which key
-;;(require 'mode-which-key)
-
 ;; Window
-;;(require 'mode-window)
+(require 'mode-window)
+
+;; Prog
+(require 'mode-prog)
+
+;; Evil
+(require 'mode-evil)
+
 
 ;; Company
+(require 'mode-company)
 
 ;; Yasnippet
+(require 'mode-yasnippet)
 
 ;; Flycheck
+(require 'mode-flycheck)
 
 ;; Dired
+(require 'mode-dired)
 
 ;; Kill-ring
+(require 'mode-kill-ring)
 
 ;; Search
 
@@ -132,6 +141,7 @@
 ;; Shell
 
 ;; VCS
+(require 'mode-vcs)
 
 ;; Dictionay
 

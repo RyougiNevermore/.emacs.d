@@ -18,7 +18,8 @@
 (eval-when-compile
   (require 'core-const)
   (require 'core-custom)
-  (require 'core-package))
+  (require 'core-package)
+)
 
   
 (use-package counsel
@@ -78,8 +79,10 @@
     ;; (setq ivy-initial-inputs-alist nil)
 
     (setq ivy-re-builders-alist 
-        '((read-file-name-internal . ivy--regex-fuzzy)
-          (t . ivy--regex-plus)))
+        '( (read-file-name-internal . ivy--regex-fuzzy)
+            (t . ivy--regex-plus)
+          )
+    )
 
     (setq swiper-action-recenter t)
     (setq counsel-find-file-at-point t)
@@ -87,38 +90,43 @@
 
     ;; Find counsel commands quickly
     (bind-key "<f6>" (lambda ()
-                     (interactive)
-                     (counsel-M-x "^counsel ")))
+                        (interactive)
+                        (counsel-M-x "^counsel ")
+                     )
+    )
 
     ;; Use faster search tools: ripgrep or the silver search
     (let ((command
-        (cond
-        ((executable-find "rg")
-           "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
-        ((executable-find "ag")
-           "ag -i --noheading --nocolor --nofilename --numbers '%s' %s"))))
-    (setq counsel-grep-base-command command))
+                (cond
+                    ((executable-find "rg") "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
+                    ((executable-find "ag") "ag -i --noheading --nocolor --nofilename --numbers '%s' %s")
+                )
+        ))
+        (setq counsel-grep-base-command command)
+    )
 
     ;; Integration with `projectile'
     (with-eval-after-load 'projectile
-        (setq projectile-completion-system 'ivy))
+        (setq projectile-completion-system 'ivy)
+    )
 
     ;; Integration with `magit'
     (with-eval-after-load 'magit
-        (setq magit-completing-read-function 'ivy-completing-read))
-
-
+        (setq magit-completing-read-function 'ivy-completing-read)
+    )
 
     ;; Additional key bindings for Ivy
     (use-package ivy-hydra
         :bind (:map ivy-minibuffer-map
-                ("M-o" . ivy-dispatching-done-hydra)))
+                ("M-o" . ivy-dispatching-done-hydra))
+    )
 
     ;; Correcting words with flyspell via Ivy
     (use-package flyspell-correct-ivy
         :after flyspell
         :bind (:map flyspell-mode-map
-                ("C-;" . flyspell-correct-previous-word-generic)))
+                ("C-;" . flyspell-correct-previous-word-generic))
+    )
 
     ;; More friendly display transformer for Ivy
     (use-package ivy-rich
@@ -134,27 +142,33 @@
             (ivy-set-display-transformer 'counsel-projectile
                                    'ivy-rich-switch-buffer-transformer)
             (ivy-set-display-transformer 'counsel-projectile-switch-to-buffer
-                                   'ivy-rich-switch-buffer-transformer)))
+                                   'ivy-rich-switch-buffer-transformer)
+        )
+    )
 
     ;; Ivy integration for Projectile
     (use-package counsel-projectile
-        :init (counsel-projectile-mode 1))
+        :init (counsel-projectile-mode 1)
+    )
 
     ;; Stylesheet-selector-aware swiper
     (use-package counsel-css
         :bind (:map counsel-mode-map
                     ("C-c c c" . counsel-css))
-        :init (add-hook 'css-mode-hook 'counsel-css-imenu-setup))
+        :init (add-hook 'css-mode-hook 'counsel-css-imenu-setup)
+    )
 
     ;; Display world clock using Ivy
     (use-package counsel-world-clock
         :bind (:map counsel-mode-map
-                    ("C-c c k" . counsel-world-clock)))
+                    ("C-c c k" . counsel-world-clock))
+    )
 
     ;; Tramp ivy interface
     (use-package counsel-tramp
         :bind (:map counsel-mode-map
-                    ("C-c c t" . counsel-tramp)))
+                    ("C-c c t" . counsel-tramp))
+    )
 
     ;; Ivy for GNU global
     (use-package counsel-gtags
@@ -168,8 +182,8 @@
         (setq counsel-gtags-auto-update t)
 
         (add-hook 'c-mode-hook 'counsel-gtags-mode)
-        (add-hook 'c++-mode-hook 'counsel-gtags-mode))
-
+        (add-hook 'c++-mode-hook 'counsel-gtags-mode)
+    )
  
 )
 
