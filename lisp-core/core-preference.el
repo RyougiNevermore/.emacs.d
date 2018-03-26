@@ -18,7 +18,8 @@
 (eval-when-compile
   (require 'core-const)
   (require 'core-custom)
-  (require 'core-package))
+  (require 'core-package)
+)
 
 ;; personal information
 (setq user-full-name my-full-name)
@@ -36,6 +37,14 @@
 (global-auto-revert-mode t)
 ;; enable abbrev
 (abbrev-mode t)
+;; Show path if names are same
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets) 
+(setq adaptive-fill-regexp "[ t]+|[ t]*([0-9]+.|*+)[ t]*")
+(setq adaptive-fill-first-line-regexp "^* *$")
+;; Repeating C-SPC after popping mark pops it again
+(setq set-mark-command-repeat-pop t)
+;; enable show paren mode
+(add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
 ;; Menu/Tool/Scroll bars
 (unless (or sys/mac-x-p sys/linux-x-p) (menu-bar-mode -1))
@@ -50,17 +59,80 @@
 ;; enable hight line
 (global-hl-line-mode t)
 ;; max screen
-(setq  initial-frame-alist (quote ((fullscreen . maximized))))
-
+(when my-frame-max-screen-enabled 
+  (setq  initial-frame-alist (quote ((fullscreen . maximized))))
+)
 
 ;; Line and Column
 (setq-default fill-column 80)
 (setq column-number-mode t)
 (setq line-number-mode t)
 
+;; Theme
+(cond
+ ((eq my-theme 'default)
+  (use-package challenger-deep-theme
+    :init (load-theme 'challenger-deep t)
+  ))
+  ((eq my-theme 'dracula)
+  (use-package dracula-theme
+    :init (load-theme 'dracula t)
+  ))
+ ((eq my-theme 'spacemacs-dark)
+  (use-package spacemacs-theme
+    :init (load-theme 'spacemacs-dark t)
+  ))
+ ((eq my-theme 'spacemacs-light)
+  (use-package spacemacs-theme
+    :init (load-theme 'spacemacs-light t)
+  ))
+ ((eq my-theme 'spacemacs-daylight)
+  (use-package leuven-theme
+    :init (load-theme 'leuven t)
+  ))
+)
+
+;; Meta and Super Key for windows 
+(when (and sys/cygwinp win-meta-super-key) 
+  ;; Left Windows key
+  (setq w32-pass-lwindow-to-system nil)
+  (setq w32-lwindow-modifier 'super)
+  ;; Right Windows key
+  (setq w32-pass-rwindow-to-system nil)
+  (setq w32-rwindow-modifier 'super)
+  ;; Menu/App key
+  (setq w32-pass-apps-to-system nil)
+  (setq w32-apps-modifier 'hyper)
+  (w32-register-hot-key [s-t])
+)
+
+;; osx key
+(when (and sys/mac-x-p osx-key-mode)
+  ;; make opt key do Super
+  (setq mac-command-modifier 'super)
+  ;; make cmd key do Meta 
+  (setq mac-option-modifier 'meta) 
+  ;; make Control key do Control
+  (setq mac-control-modifier 'control)
+  ;; make Fn key do Hyper 
+  (setq ns-function-modifier 'hyper)    
+)
+
+;; History
+(use-package saveplace
+  :ensure nil
+  :init
+  ;; Emacs 25 has a proper mode for `save-place'
+  (if (fboundp 'save-place-mode)
+    (add-hook 'after-init-hook #'save-place-mode)
+    (setq save-place t)
+  )
+)
+
 
 
 (provide 'core-preference)
+
 ;;----------------------------------------------------------------------------
 ;; core-preference.el ends here
 ;;----------------------------------------------------------------------------

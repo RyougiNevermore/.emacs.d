@@ -79,7 +79,7 @@
 (require 'core-preference)
 
 ;; Edit
-;;(require 'core-edit)
+(require 'core-edit)
 
 ;; UI TODO: TREE
 ;;(require 'core-ui)

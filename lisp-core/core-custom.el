@@ -43,6 +43,12 @@
                 )
 )
 
+;; frame
+(defcustom my-frame-max-screen-enabled nil
+  "Set screen to be max."
+  :type 'boolean
+)
+
 ;; emoji
 (defcustom my-emoji-enabled nil
   "Enable emoji features or not."
@@ -63,19 +69,19 @@
 
 ;; osx key mode
 (defcustom osx-key-mode nil
-  "Use osx-key-mode."
+  "Use osx key mode."
   :type 'boolean
 )
 
-;; swapper Meta(Alt) and Super(Win) key for gnu
-(defcustom gnu-swapper-meta-super-key nil
-  "Swapper Meta(Alt) and Super(Win) key for gnu."
+;; Make Super key be CUA leader key.
+(defcustom cua-super-key nil
+  "Make Super key be CUA leader key."
   :type 'boolean
 )
 
-;; swapper Meta(Alt) and Super(Win) key for windows(Cygwin)
-(defcustom win-swapper-meta-super-key nil
-  "Swapper Meta(Alt) and Super(Win) key for windows(Cygwin)."
+;; Meta(Alt) and Super(Win) key for windows(Cygwin)
+(defcustom win-meta-super-key nil
+  "Setup Meta(Alt) and Super(Win) key for windows(Cygwin)."
   :type 'boolean
 )
 

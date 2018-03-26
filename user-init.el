@@ -20,7 +20,16 @@
 (setq my-benchmark-enabled nil)
 ;; Org agenda dir 
 (setq my-org-agenda-dir "~/Org")
-
+;; frame: t or nil
+;; (setq my-frame-max-screen-enabled t)
+;; Use osx key mode. : t or nil
+;;(setq osx-key-mode t)
+;; Make Super key be CUA leader key. : t or nil
+(setq cua-super-key t)
+;; Setup Meta(Alt) and Super(Win) key for windows(Cygwin). : t or nil
+;; (setq win-meta-super-key t)
+;; Theme (default, dracula, spacemacs-dark, spacemacs-light, and spacemacs-daylight)
+(setq my-theme 'default)
 
 ;;----------------------------------------------------------------------------
 ;; custom.el ends here
