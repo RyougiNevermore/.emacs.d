@@ -29,7 +29,7 @@
 ;; Setup Meta(Alt) and Super(Win) key for windows(Cygwin). : t or nil
 ;; (setq win-meta-super-key t)
 ;; Theme (default, dracula, spacemacs-dark, spacemacs-light, and spacemacs-daylight)
-(setq my-theme 'default)
+(setq my-theme 'dracula)
 
 ;;----------------------------------------------------------------------------
 ;; user-init.el ends here
