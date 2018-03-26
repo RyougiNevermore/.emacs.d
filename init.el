@@ -81,8 +81,11 @@
 ;; Edit
 (require 'core-edit)
 
-;; UI TODO: TREE
+;; Modeline
 (require 'core-modeline)
+
+;; Tree
+(require 'core-tree)
 
 ;; High Light
 ;;(require 'core-highlight)
