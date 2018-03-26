@@ -31,7 +31,6 @@
 ;; Version required
 ;;----------------------------------------------------------------------------
 
-
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -54,12 +53,9 @@
             (setq file-name-handler-alist default-file-name-handler-alist)
             (setq gc-cons-threshold 800000)))
 
-
 ;;----------------------------------------------------------------------------
 ;; Bootstrap config
 ;;----------------------------------------------------------------------------
-
-
 
 ;; Load path
 (add-to-list 'load-path (expand-file-name "lisp-core" user-emacs-directory))
@@ -83,39 +79,38 @@
 (require 'core-preference)
 
 ;; Edit
-(require 'core-edit)
+;;(require 'core-edit)
 
 ;; UI TODO: TREE
-(require 'core-ui)
+;;(require 'core-ui)
 
 ;; High Light
-(require 'core-highlight)
+;;(require 'core-highlight)
 
 ;;  Recent file
-(require 'core-recentf)
+;;(require 'core-recentf)
 
 ;; Functions
-(require 'core-func)
+;;(require 'core-func)
 
 ;;----------------------------------------------------------------------------
 ;; Mode
 ;;----------------------------------------------------------------------------
 
-
 ;; Projectile
-(require 'mode-projectile)
+;;(require 'mode-projectile)
 
 ;; Ivy
-(require 'mode-ivy)
+;;(require 'mode-ivy)
 
 ;; Evil
-(require 'mode-evil)
+;;(require 'mode-evil)
 
 ;; Which key
-(require 'mode-which-key)
+;;(require 'mode-which-key)
 
 ;; Window
-(require 'mode-window)
+;;(require 'mode-window)
 
 ;; Company
 
