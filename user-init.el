@@ -1,11 +1,11 @@
-;;; custom.el  -*- no-byte-compile: t -*-
+;;; user-init.el  -*- no-byte-compile: t -*-
 ;;; Commentary:
-;;;       Edit custom.el and change the configurations,
+;;;       Edit user-init.el and change the configurations,
 ;;;       then restart Emacs.
 ;;; Code:
 
 ;;----------------------------------------------------------------------------
-;; Custom settings
+;; User settings
 ;;----------------------------------------------------------------------------
 
 ;; User full name
@@ -32,5 +32,5 @@
 (setq my-theme 'default)
 
 ;;----------------------------------------------------------------------------
-;; custom.el ends here
+;; user-init.el ends here
 ;;----------------------------------------------------------------------------

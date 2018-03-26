@@ -15,8 +15,6 @@
 ;;
 ;;; Code:
 
-
-
 (use-package recentf
   :ensure nil
   :init
@@ -26,18 +24,15 @@
   (add-hook 'after-init-hook #'recentf-mode)
   (add-hook 'find-file-hook (lambda () (unless recentf-mode
                                          (recentf-mode)
-                                         (recentf-track-opened-file))))
+                                         (recentf-track-opened-file)))
+  )
   :config
   (add-to-list 'recentf-exclude (expand-file-name package-user-dir))
   (add-to-list 'recentf-exclude "bookmarks")
   (add-to-list 'recentf-exclude "COMMIT_EDITMSG\\'")
-  
-  
 )
 
-
 (provide 'core-recentf)
-
 
 ;;----------------------------------------------------------------------------
 ;; core-recentf.el ends here

@@ -29,6 +29,17 @@
 ;; Kill line including '\n'
 (setq-default kill-whole-line t)
 
+(defun my-backward-kill-word-or-region (&optional arg)
+  "Calls `kill-region' when a region is active and
+`backward-kill-word' otherwise. ARG is passed to
+`backward-kill-word' if no region is active."
+  (interactive "p")
+  (if (region-active-p)
+    (call-interactively #'kill-region)
+    (backward-kill-word arg)
+  )
+)
+
 ;; key binding of cua, use <Super> key.
 (when (and cua-super-key (not sys/mac-x-p))
   ;; select all 
@@ -44,7 +55,7 @@
   ;; undo
   (bind-key* "s-z" 'undo)
   ;; backward-kill-word
-  (bind-key* "C-w" 'backward-kill-word)
+  (bind-key* "C-w" 'my-backward-kill-word-or-region)
   ;; 'kill-whole-line
   (bind-key* "s-d" 'kill-whole-line)
  )
@@ -184,6 +195,14 @@
   (setq anzu-replace-to-string-separator
     (if (char-displayable-p ?→) " → " " -> ")
   )
+)
+
+;; unfill M-q
+(use-package unfill
+  :defer t
+  :commands (unfill-region unfill-paragraph unfill-toggle)
+  :init
+  (global-set-key [remap fill-paragraph] #'unfill-toggle)
 )
 
 (provide 'core-edit)

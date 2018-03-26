@@ -1,9 +1,9 @@
-;; core-ui.el	-*- lexical-binding: t -*-
+;; core-modeline.el	-*- lexical-binding: t -*-
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
-;;             User Interface.
+;;             Mode line.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -18,20 +18,11 @@
 (eval-when-compile
   (require 'core-const)
   (require 'core-custom)
-  (require 'core-package))
+  (require 'core-package)
+)
 
   ;; icon
 (use-package all-the-icons)
-
-;; theme
-(use-package challenger-deep-theme
-    :init (load-theme 'challenger-deep t)
-    :config
-    (custom-set-faces 
-      `(font-lock-function-name-face ((t (:bold, t))) t) 
-      `(font-lock-keyword-face ((t (:bold, t))) t) 
-      `(font-lock-builtin-face ((t (:bold, t))) t) 
-      `(font-lock-type-face ((t (:bold, t))) t)))
 
 ;; spaceline
 (use-package spaceline-config
@@ -72,7 +63,7 @@
 ;; tree TODO:
 
 
-(provide 'core-ui)
+(provide 'core-modeline)
 ;;----------------------------------------------------------------------------
 ;; core-ui.el ends here
 ;;----------------------------------------------------------------------------
