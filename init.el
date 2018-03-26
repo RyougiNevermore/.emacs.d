@@ -94,17 +94,17 @@
 (require 'core-recentf)
 
 ;; Functions
-;;(require 'core-func)
+(require 'core-func)
 
 ;;----------------------------------------------------------------------------
 ;; Mode
 ;;----------------------------------------------------------------------------
 
 ;; Projectile
-;;(require 'mode-projectile)
+(require 'mode-projectile)
 
 ;; Ivy
-;;(require 'mode-ivy)
+(require 'mode-ivy)
 
 ;; Evil
 ;;(require 'mode-evil)
