@@ -43,8 +43,6 @@
 (setq adaptive-fill-first-line-regexp "^* *$")
 ;; Repeating C-SPC after popping mark pops it again
 (setq set-mark-command-repeat-pop t)
-;; enable show paren mode
-(add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
 ;; Menu/Tool/Scroll bars
 (unless (or sys/mac-x-p sys/linux-x-p) (menu-bar-mode -1))
@@ -56,8 +54,6 @@
 (global-linum-mode t)
 ;; set cursor type
 (setq-default cursor-type 'bar)
-;; enable hight line
-(global-hl-line-mode t)
 ;; max screen
 (when my-frame-max-screen-enabled 
   (setq  initial-frame-alist (quote ((fullscreen . maximized))))
@@ -142,6 +138,21 @@
     (exec-path-from-shell-initialize)
   )
 )
+
+;; Edit multiple regions in the same way simultaneously
+(use-package iedit
+  :bind (("C-;" . iedit-mode)
+         ("C-x r RET" . iedit-rectangle-mode)
+         :map isearch-mode-map ("C-;" . iedit-mode-from-isearch)
+         :map esc-map ("C-;" . iedit-execute-last-modification)
+         :map help-map ("C-;" . iedit-mode-toggle-on-function))
+  :config
+  ;; Avoid restoring `iedit-mode'
+  (with-eval-after-load 'desktop
+    (add-to-list 'desktop-minor-mode-table  '(iedit-mode nil))
+  )
+)
+
 
 (provide 'core-preference)
 

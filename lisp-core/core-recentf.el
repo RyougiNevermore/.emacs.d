@@ -23,8 +23,10 @@
   ;; lazy load recentf
   (add-hook 'after-init-hook #'recentf-mode)
   (add-hook 'find-file-hook (lambda () (unless recentf-mode
-                                         (recentf-mode)
-                                         (recentf-track-opened-file)))
+                                                          (recentf-mode)
+                                                          (recentf-track-opened-file)
+                                                          )
+                                                        )
   )
   :config
   (add-to-list 'recentf-exclude (expand-file-name package-user-dir))

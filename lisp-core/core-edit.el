@@ -60,6 +60,19 @@
   (bind-key* "s-d" 'kill-whole-line)
  )
 
+ ;; Rectangle
+(use-package rect
+  :ensure nil
+  :bind (("<C-return>" . rectangle-mark-mode))
+)
+
+;; Automatically reload files was modified by external program
+(use-package autorevert
+  :ensure nil
+  :diminish auto-revert-mode
+  :init (add-hook 'after-init-hook #'global-auto-revert-mode)
+)
+
 ;; Delete selection if you insert
 (use-package delsel
   :ensure nil
@@ -203,6 +216,34 @@
   :commands (unfill-region unfill-paragraph unfill-toggle)
   :init
   (global-set-key [remap fill-paragraph] #'unfill-toggle)
+)
+
+;; Framework for mode-specific buffer indexes
+(use-package imenu
+  :ensure nil
+  :bind (("C-." . imenu))
+)
+
+;; Edit multiple regions in the same way simultaneously
+(use-package iedit
+  :bind (("C-;" . iedit-mode)
+         ("C-x r RET" . iedit-rectangle-mode)
+         :map isearch-mode-map ("C-;" . iedit-mode-from-isearch)
+         :map esc-map ("C-;" . iedit-execute-last-modification)
+         :map help-map ("C-;" . iedit-mode-toggle-on-function))
+  :config
+  ;; Avoid restoring `iedit-mode'
+  (with-eval-after-load 'desktop
+    (add-to-list 'desktop-minor-mode-table  '(iedit-mode nil))
+  )
+)
+
+;; Hideshow
+(use-package hideshow
+  :ensure nil
+  :bind (:map hs-minor-mode-map
+              ("C-`" . hs-toggle-hiding))
+  :diminish hs-minor-mode
 )
 
 (provide 'core-edit)

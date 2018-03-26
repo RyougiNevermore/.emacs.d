@@ -44,9 +44,9 @@
   (spaceline-all-the-icons--setup-package-updates) ;; Enable package update indicator
   (spaceline-all-the-icons--setup-git-ahead)       ;; Enable # of commits ahead of upstream in git
   (spaceline-all-the-icons--setup-neotree)         ;; Enable Neotree mode line
-  :custom
-  (spaceline-all-the-icons-icon-set-modified 'toggle "")
-  (spaceline-all-the-icons-icon-set-window-numbering 'circle "")
+  ;;:custom
+  ;;(spaceline-all-the-icons-icon-set-modified 'toggle "")
+  ;;(spaceline-all-the-icons-icon-set-window-numbering 'circle "")
   
 )
 

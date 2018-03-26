@@ -88,10 +88,10 @@
 (require 'core-tree)
 
 ;; High Light
-;;(require 'core-highlight)
+(require 'core-highlight)
 
 ;;  Recent file
-;;(require 'core-recentf)
+(require 'core-recentf)
 
 ;; Functions
 ;;(require 'core-func)

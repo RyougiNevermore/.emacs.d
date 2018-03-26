@@ -24,7 +24,8 @@
 ;; Highlight the current line
 (use-package hl-line
   :ensure nil
-  :init (add-hook 'after-init-hook #'global-hl-line-mode))
+  :init (add-hook 'after-init-hook #'global-hl-line-mode)
+)
 
 ;; Highlight symbols
 (use-package symbol-overlay
@@ -33,7 +34,8 @@
          ("M-n" . symbol-overlay-jump-next)
          ("M-p" . symbol-overlay-jump-prev)
          ([M-f3] . symbol-overlay-remove-all))
-  :init (add-hook 'prog-mode-hook #'symbol-overlay-mode))
+  :init (add-hook 'prog-mode-hook #'symbol-overlay-mode)
+)
 
 ;; Highlight matching paren
 (use-package paren
@@ -41,12 +43,14 @@
   :init (add-hook 'after-init-hook #'show-paren-mode)
   :config
   (setq show-paren-when-point-inside-paren t)
-  (setq show-paren-when-point-in-periphery t))
+  (setq show-paren-when-point-in-periphery t)
+)
 
 ;; Highlight indentions
 (use-package highlight-indent-guides
   :init (add-hook 'prog-mode-hook #'highlight-indent-guides-mode)
-  :config (setq highlight-indent-guides-method 'character))
+  :config (setq highlight-indent-guides-method 'character)
+)
 
 ;; Colorize color names in buffers
 (use-package rainbow-mode
@@ -54,13 +58,17 @@
   :init
   (add-hook 'emacs-lisp-mode-hook #'rainbow-mode)
   (with-eval-after-load 'web-mode
-    (add-hook 'web-mode-hook #'rainbow-mode))
+    (add-hook 'web-mode-hook #'rainbow-mode)
+  )
   (with-eval-after-load 'css-mode
-    (add-hook 'css-mode-hook #'rainbow-mode)))
+    (add-hook 'css-mode-hook #'rainbow-mode)
+  )
+)
 
 ;; Highlight brackets according to their depth
 (use-package rainbow-delimiters
-  :init (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+  :init (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+)
 
 ;; Highlight TODO and similar keywords in comments and strings
 (use-package hl-todo
@@ -69,7 +77,8 @@
               ("C-c t p" . hl-todo-previous)
               ("C-c t n" . hl-todo-next)
               ("C-c t o" . hl-todo-occur))
-  :init (add-hook 'after-init-hook #'global-hl-todo-mode))
+  :init (add-hook 'after-init-hook #'global-hl-todo-mode)
+)
 
 ;; Highlight uncommitted changes
 (use-package diff-hl
@@ -83,25 +92,33 @@
 
   ;; Fall back to the display margin, if the fringe is unavailable
   (unless (display-graphic-p)
-    (diff-hl-margin-mode 1))
+    (diff-hl-margin-mode 1)
+  )
 
   ;; Avoid restoring `diff-hl-margin-mode'
   (with-eval-after-load 'desktop
     (add-to-list 'desktop-minor-mode-table
-                 '(diff-hl-margin-mode nil)))
+                            '(diff-hl-margin-mode nil)
+    )
+  )
 
   ;; Integration with magit and psvn
   (with-eval-after-load 'magit
-    (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh))
+    (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh)
+  )
 
   (with-eval-after-load 'psvn
     (defadvice svn-status-update-modeline (after svn-update-diff-hl activate)
-      (diff-hl-update))))
+      (diff-hl-update)
+    )
+  )
+)
 
 ;; Highlight some operations
 (use-package volatile-highlights
   :diminish volatile-highlights-mode
-  :init (add-hook 'after-init-hook #'volatile-highlights-mode))
+  :init (add-hook 'after-init-hook #'volatile-highlights-mode)
+)
 
 ;; Visualize TAB, (HARD) SPACE, NEWLINE
 (use-package whitespace
@@ -109,15 +126,18 @@
   :diminish whitespace-mode
   :init
   (dolist (hook '(prog-mode-hook outline-mode-hook conf-mode-hook))
-    (add-hook hook #'whitespace-mode))
+    (add-hook hook #'whitespace-mode)
+  )
   :config
-  (setq whitespace-line-column fill-column) ;; limit line length
+  ;; limit line length
+  (setq whitespace-line-column fill-column) 
   ;; automatically clean up bad whitespace
   (setq whitespace-action '(auto-cleanup))
   ;; only show bad whitespace
   (setq whitespace-style '(face
-                           trailing space-before-tab
-                           indentation empty space-after-tab))
+                                                    trailing space-before-tab
+                                                    indentation empty space-after-tab)
+  )
 
   (with-eval-after-load 'popup
     ;; advice for whitespace-mode conflict with popup
@@ -129,14 +149,20 @@
       (if whitespace-mode
           (progn
             (setq my-prev-whitespace-mode t)
-            (whitespace-mode -1))
-        (setq my-prev-whitespace-mode nil)))
+            (whitespace-mode -1)
+          )
+        (setq my-prev-whitespace-mode nil)
+      )
+    )
 
     (defadvice popup-delete (after my-restore-whitespace activate compile)
       "Restore previous whitespace mode when deleting autocomplete box."
       (if my-prev-whitespace-mode
-          (whitespace-mode 1)))))
-
+          (whitespace-mode 1)
+      )
+    )
+  )
+)
 
 (provide 'core-highlight)
 ;;----------------------------------------------------------------------------
