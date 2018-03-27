@@ -139,21 +139,6 @@
   )
 )
 
-;; Edit multiple regions in the same way simultaneously
-(use-package iedit
-  :bind (("C-;" . iedit-mode)
-         ("C-x r RET" . iedit-rectangle-mode)
-         :map isearch-mode-map ("C-;" . iedit-mode-from-isearch)
-         :map esc-map ("C-;" . iedit-execute-last-modification)
-         :map help-map ("C-;" . iedit-mode-toggle-on-function))
-  :config
-  ;; Avoid restoring `iedit-mode'
-  (with-eval-after-load 'desktop
-    (add-to-list 'desktop-minor-mode-table  '(iedit-mode nil))
-  )
-)
-
-
 (provide 'core-preference)
 
 ;;----------------------------------------------------------------------------

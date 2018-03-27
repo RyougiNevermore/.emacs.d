@@ -85,6 +85,9 @@
   :type 'boolean
 )
 
+;; evil leader key 
+(defvar my-evil-leader-key "<SPC>")
+
 ;; theme
 (defcustom my-theme 'default
   "Set color theme."

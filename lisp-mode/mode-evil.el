@@ -37,9 +37,11 @@
     :init
     (global-evil-leader-mode)
     :config   
-    (evil-leader/set-leader "<SPC>")
+    (evil-leader/set-leader my-evil-leader-key)
+    ;; bind files keys
+    (which-key-add-key-based-replacements (concat my-evil-leader-key  " f") "files")
     (evil-leader/set-key
-        "ff" 'find-file
+        "ff" 'find-file 
         ;; TODO: ADD MORE KEYS 
         ;; https://github.com/emacs-evil/evil-collection/blob/master/evil-collection.el
         ;; add ivy keys
