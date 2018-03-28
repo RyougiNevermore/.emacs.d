@@ -167,12 +167,8 @@
 ;; Python
 (require 'lang-python)
 
-;; WEB
+;; WEB (NodeJS)
 (require 'lang-web)
-
-;; NODEJS
-
-
 
 ;;----------------------------------------------------------------------------
 ;; init.el ends here

@@ -68,7 +68,7 @@
 
 (use-package nxml-mode
     :ensure nil
-    :mode (("\\.xaml$" . xml-mode))
+    :mode (("\\.xaml\\'" . xml-mode))
 )
 
 (use-package quickrun
@@ -94,6 +94,7 @@
     :defer t
     :init 
     (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+    (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode))
 )
 
 (use-package flycheck-yamllint
