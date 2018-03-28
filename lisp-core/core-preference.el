@@ -139,6 +139,11 @@
   )
 )
 
+;; restart-emacs
+(use-package restart-emacs
+  :config
+)
+
 (provide 'core-preference)
 
 ;;----------------------------------------------------------------------------

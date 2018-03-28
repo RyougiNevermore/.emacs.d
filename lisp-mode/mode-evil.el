@@ -28,8 +28,6 @@
     :config
     (setq evil-want-C-u-scroll t)
     (define-key evil-insert-state-map [escape] 'evil-normal-state)
-
-
 )
 
 (use-package evil-leader 
@@ -49,6 +47,11 @@
         "fG" 'counsel-grep
         "fd" 'dired-jump
 
+    )
+    ;; system
+    (which-key-add-key-based-replacements (concat my-evil-leader-key  " X") "system")
+    (evil-leader/set-key
+        "Xr"  ' restart-emacs
     )
     ;; neotree
     (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
@@ -84,6 +87,7 @@
         "bi" 'ibuffer
 
     )
+
     ;; window
     (which-key-add-key-based-replacements (concat my-evil-leader-key  " w") "Window")
     (which-key-add-key-based-replacements (concat my-evil-leader-key  " w s") "Window split")
@@ -101,12 +105,16 @@
         "w9" 'select-window-9
         "wsr" 'split-window-right
         "wsb" 'split-window-below
-        
     )
-    ;; project
-    (which-key-add-key-based-replacements (concat my-evil-leader-key  " p") "Project")
+    
+    ;;  Comment
+    (which-key-add-key-based-replacements (concat my-evil-leader-key  " #") "Comment tags")
     (evil-leader/set-key
-        "pf" 'projectile-find-file
+      "#b" 'comment-tags-list-tags-buffer
+      "#a" 'comment-tags-list-tags-buffers
+      "#s" 'comment-tags-find-tags-buffer
+      "#n" 'comment-tags-next-tag
+      "#p" 'comment-tags-previous-tag
     )
 )
 
@@ -147,6 +155,7 @@
         (setq iedit-current-symbol-default t
             iedit-only-at-symbol-boundaries t
             iedit-toggle-key-default nil)
+            (which-key-add-key-based-replacements (concat my-evil-leader-key  " s") "iedit")
             (evil-leader/set-key "se" 'evil-iedit-state/iedit-mode)
     )
     :config
@@ -216,8 +225,9 @@
         (define-key evil-normal-state-map "gc" 'evilnc-comment-operator)
         (define-key evil-normal-state-map "gy" ' my-evil-copy-and-comment-lines)
 
+        (which-key-add-key-based-replacements (concat my-evil-leader-key  " c") "Comment")
         (evil-leader/set-key
-        ";"  'evilnc-comment-operator
+        "c;"  'evilnc-comment-operator
         "cl" ' my-evil-comment-or-uncomment-lines
         "cL" ' my-evil-comment-or-uncomment-lines-inverse
         "cp" ' my-evil-comment-or-uncomment-paragraphs

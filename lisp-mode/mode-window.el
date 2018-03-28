@@ -99,6 +99,7 @@
             ("*go-guru-output*" :dedicated t :position bottom :stick t :noselect nil)
             ("*Gofmt Errors*" :dedicated t :position bottom :stick t :noselect nil)
             ("*Go Test*" :dedicated t :position bottom :stick t :noselect nil)
+            ("*go-direx:" :regexp t :position right :width 0.4 :dedicated t :stick t)
 
             ;; Test
             ("*ert*" :dedicated t :position bottom :stick t :noselect nil)

@@ -57,6 +57,13 @@
       :init (projectile-rails-global-mode 1)
     )
   )
+
+  (with-eval-after-load 'evil-leader 
+    (which-key-add-key-based-replacements (concat my-evil-leader-key  " p") "Project")
+    (evil-leader/set-key
+        "pf" 'projectile-find-file
+    )
+  )
 )
 
 ;; Group ibuffer's list by project root
