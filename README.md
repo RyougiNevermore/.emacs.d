@@ -17,6 +17,7 @@ latest stable release - currently **25.3**.
 # Features
 
 - Out of box.
+- OSX CUA style, Use Super instead of Ctrl. 
 - Clean and Fast.
 - Quick fuzzy search (via `ivy`, `rg`, `ag` and `pt` etc.).
 - Better Org support.
