@@ -111,7 +111,12 @@
 
     (with-eval-after-load 'company
         (use-package company-go
-            :init (cl-pushnew (company-backend-with-yas 'company-go) company-backends)
+            :defer t
+            :init 
+            (progn
+                (setq company-go-show-annotation t)
+                (cl-pushnew (company-backend-with-yas 'company-go) company-backends)
+            )
         )
     )
 

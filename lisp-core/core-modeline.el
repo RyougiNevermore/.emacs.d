@@ -37,7 +37,7 @@
 )
 
 (use-package spaceline-all-the-icons 
-  :after spaceline-config
+  :after spaceline
   :config 
   (spaceline-all-the-icons-theme)
   (spaceline-all-the-icons--setup-anzu)            ;; Enable anzu searching
@@ -46,7 +46,8 @@
   (spaceline-all-the-icons--setup-neotree)         ;; Enable Neotree mode line
   ;;:custom
   ;;(spaceline-all-the-icons-icon-set-modified 'toggle "")
-  ;;(spaceline-all-the-icons-icon-set-window-numbering 'circle "")
+  (setq spaceline-all-the-icons-icon-set-modified 'toggle)
+  (setq spaceline-all-the-icons-icon-set-window-numbering 'circle )
   
 )
 
