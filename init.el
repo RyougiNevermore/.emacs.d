@@ -1,27 +1,57 @@
+;;; init.el --- user init configuration.	-*- lexical-binding: t no-byte-compile: t; -*-
+;;
+;; Filename: init.el
+;; Description:
+;; Author: Ryougi Nevermore <ryougi.nevermore@hotmail.com>
+;; Version: 1.1.0
+;; Maintainer:
+;; Created: 2018-03-25
+;; URL: https://github.com/RyougiNevermore/.emacs.d
+;; Keywords:
+;; Compatibility:
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;             Ryougi's Emacs configuration
+;;
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; License:
+;;             GNU GENERAL PUBLIC LICENSE
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;
+;;; Code:
 
-;; -*- lexical-binding: t -*-
+;;----------------------------------------------------------------------------
+;; Version required
+;;----------------------------------------------------------------------------
 
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+(package-initialize)
 
-(when (version< emacs-version "24.4")
-  (error "This requires Emacs 24.4 and above!"))
+(when (version< emacs-version "25.0")
+  (error "This requires Emacs 25.0 and above!"))
 
+;;----------------------------------------------------------------------------
 ;; Optimize loading performance
+;;----------------------------------------------------------------------------
+
 (defvar default-file-name-handler-alist file-name-handler-alist)
 (setq file-name-handler-alist nil)
 (setq gc-cons-threshold 30000000)
 (add-hook 'emacs-startup-hook
-          (lambda ()
-            "Restore defalut values after init"
-            (setq file-name-handler-alist default-file-name-handler-alist)
-            (setq gc-cons-threshold 800000)))
-
-
-
-
+	  (lambda ()
+	    "Restore defalut values after init"
+	    (setq file-name-handler-alist default-file-name-handler-alist)
+	    (setq gc-cons-threshold 800000))
+)
 
 ;;----------------------------------------------------------------------------
 ;; Bootstrap config
@@ -29,10 +59,8 @@
 
 ;; Load path
 (add-to-list 'load-path (expand-file-name "lisp-core" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "lisp-preference" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "lisp-module" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
-
+(add-to-list 'load-path (expand-file-name "lisp-mode" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "lisp-lang" user-emacs-directory))
 
 ;;----------------------------------------------------------------------------
 ;; Core
@@ -44,55 +72,103 @@
 ;; Customization
 (require 'core-custom)
 
-;; package
-;; Without this comment Emacs25 adds (package-initialize) here
-(package-initialize)
+;; Package
 (require 'core-package)
 
-
-;;----------------------------------------------------------------------------
 ;; Preferences
+(require 'core-preference)
+
+;; Edit
+(require 'core-edit)
+
+;; Modeline
+(require 'core-modeline)
+
+;; Tree
+(require 'core-tree)
+
+;; High Light
+(require 'core-highlight)
+
+;;  Recent file
+(require 'core-recentf)
+
+;; Functions
+(require 'core-func)
+
+;; Util
+(require 'core-util)
+
 ;;----------------------------------------------------------------------------
-(require 'preference-basic)
-(require 'preference-ui)
-(require 'preference-edit)
-
-(require 'preference-ivy)
-(require 'preference-company)
-(require 'preference-yasnippet)
-(require 'preference-dired)
-(require 'preference-highlight)
-(require 'preference-ibuffer)
-(require 'preference-kill-ring)
-(require 'preference-window)
-
-(require 'preference-eshell)
-(require 'preference-shell)
-(require 'preference-project)
-
-(require 'preference-func)
-(require 'preference-utils)
-
-;;----------------------------------------------------------------------------
-;; Programming
+;; Mode
 ;;----------------------------------------------------------------------------
 
-(require 'module-markdown)
-(require 'module-org)
+;; Which key
+(require 'mode-which-key)
 
-(require 'module-git)
-(require 'module-svn)
+;; Search (ag)
+(require 'mode-search)
 
-(require 'module-flycheck)
+;; Ibuffer
+(require 'mode-ibuffer)
 
-(require 'module-go)
+;; Projectile
+(require 'mode-projectile)
 
-(require 'module-web)
+;; Ivy
+(require 'mode-ivy)
 
-(require 'module-c)
+;; Window
+(require 'mode-window)
 
-(require 'module-elisp)
+;; Prog
+(require 'mode-prog)
 
+;; Evil
+(require 'mode-evil)
+
+;; Company
+(require 'mode-company)
+
+;; Yasnippet
+(require 'mode-yasnippet)
+
+;; Flycheck
+(require 'mode-flycheck)
+
+;; Dired
+(require 'mode-dired)
+
+;; Kill-ring
+(require 'mode-kill-ring)
+
+;; VCS
+(require 'mode-vcs)
+
+;;----------------------------------------------------------------------------
+;; Lang
+;;----------------------------------------------------------------------------
+
+;; ORG
+(require 'lang-org)
+
+;; Markdown
+(require 'lang-markdown)
+
+;; Lsp
+(require 'lang-lsp)
+
+;; GO
+(require 'lang-go)
+
+;; C/Cpp
+(require 'lang-c)
+
+;; Python
+(require 'lang-python)
+
+;; WEB (NodeJS)
+(require 'lang-web)
 
 ;;----------------------------------------------------------------------------
 ;; init.el ends here

@@ -1,10 +1,4 @@
-;; core-custom.el --- Desfine constants.	-*- lexical-binding: t -*-
-;;
-;; Author: Ryougi Nevermore <ryougi.nevermore@hotmail.com>
-;; Version: 0.0.1
-;; URL: https://github.com/RyougiNevermore/.emacs.d
-;; Keywords:
-;; Compatibility:
+;; core-custom.el	-*- lexical-binding: t -*-
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -13,92 +7,114 @@
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;; This program is free software; you can redistribute it and/or
-;; modify it under the terms of the GNU General Public License as
-;; published by the Free Software Foundation; either version 3, or
-;; (at your option) any later version.
-;;
-;; This program is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-;; General Public License for more details.
+;;; License:
+;;             GNU GENERAL PUBLIC LICENSE
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
 ;;
 ;;; Code:
 
 ;; conf
 (defgroup my nil
   "Personal Emacs configurations."
-  :group 'extensions)
-
-;; logo
-;;(defcustom my-logo (expand-file-name "logo.png" user-emacs-directory)
-;;  "Set Centaur logo. nil means official logo."
-;;  :type 'string)
+  :group 'extensions
+)
 
 ;; name
-(defcustom my-full-name "Ryougi Nevermore"
+(defcustom my-full-name "ryougi"
   "Set user full name."
-  :type 'string)
+  :type 'string
+)
 
 ;; email
 (defcustom my-mail-address "ryougi.nevermore@hotmail.com"
   "Set user email address."
-  :type 'string)
+  :type 'string
+)
 
 ;; melpa
 (defcustom my-package-archives 'melpa
   "Set package archives from which to fetch."
-  :type '(choice
-          (const :tag "Melpa" melpa)
-          (const :tag "Emacs-China" emacs-china)
-          (const :tag "Tuna" tuna)))
+  :type '(choice 
+                  (const :tag "Melpa" melpa)
+                  (const :tag "Emacs-China" emacs-china)
+                  (const :tag "Tuna" tuna)
+                )
+)
 
+;; frame
+(defcustom my-frame-max-screen-enabled nil
+  "Set screen to be max."
+  :type 'boolean
+)
+
+;; emoji
+(defcustom my-emoji-enabled nil
+  "Enable emoji features or not."
+  :type 'boolean
+)
+
+;; benchmark
+(defcustom my-benchmark-enabled nil
+  "Enable the init benchmark or not."
+  :type 'boolean
+)
+
+;; my-org-agenda-dir
+(defcustom my-org-agenda-dir "~/Org"
+  "Set Org agenda dir."
+  :type 'string
+)
+
+;; osx key mode
+(defcustom osx-key-mode nil
+  "Use osx key mode."
+  :type 'boolean
+)
+
+;; Make Super key be CUA leader key.
+(defcustom cua-super-key nil
+  "Make Super key be CUA leader key."
+  :type 'boolean
+)
+
+;; Meta(Alt) and Super(Win) key for windows(Cygwin)
+(defcustom win-meta-super-key nil
+  "Setup Meta(Alt) and Super(Win) key for windows(Cygwin)."
+  :type 'boolean
+)
+
+;; evil leader key 
+(defvar my-evil-leader-key "<SPC>")
 
 ;; theme
 (defcustom my-theme 'default
   "Set color theme."
   :type '(choice
-          (const :tag "Default theme" default)
-          (const :tag "Dark theme" dark)
-          (const :tag "Light theme" light)
-          (const :tag "Daylight theme" daylight)))
-
-;; emoji
-(defcustom my-emoji-enabled nil
-  "Enable emoji features or not."
-  :type 'boolean)
-
-;; benchmark
-(defcustom my-benchmark-enabled nil
-  "Enable the init benchmark or not."
-  :type 'boolean)
-
-;; my-cua-key-super
-(defcustom my-cua-key-super nil
-  "Enable the CUA to be Super key or not."
-  :type 'boolean)
-
-;; my-org-agenda-dir
-(defcustom my-org-agenda-dir "~/org"
-  "Set Org agenda dir."
-  :type 'string)
-
+                  (const :tag "Default theme(challenger-deep)" default)
+                  (const :tag "Default theme(dracula)" dracula)
+                  (const :tag "Dark theme(spacemacs-dark)" spacemacs-dark)
+                  (const :tag "Light theme(spacemacs-light)" spacemacs-light)
+                  (const :tag "Daylight theme(leuven)" spacemacs-daylight)
+                )  
+)
 
 ;; For Emacs devel
-;; e.g. release is 24.5 or 25.1, while devel build is 26.0.90
 (when (= emacs-minor-version 0)
   (setq package-user-dir (locate-user-emacs-file "elpa-devel"))
   (setq desktop-base-file-name ".emacs-devel.desktop")
-  (setq desktop-base-lock-name ".emacs-devel.desktop.lock"))
+  (setq desktop-base-lock-name ".emacs-devel.desktop.lock")
+)
 
-;; custom.el
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(if (file-exists-p custom-file)
-    (load custom-file))
+;; user-init.el
+(setq user-init-file (expand-file-name "user-init.el" user-emacs-directory))
+(if (file-exists-p user-init-file) 
+  (load user-init-file)
+)
 
 (provide 'core-custom)
 
-
-
+;;----------------------------------------------------------------------------
+;; core-custom.el ends here
+;;----------------------------------------------------------------------------
