@@ -58,7 +58,7 @@
         ("C-c c w" . counsel-colors-web)
 
         :map ivy-minibuffer-map
-        ("C-w" . ivy-yank-word)
+        ("s-c" . ivy-yank-word)
 
         :map counsel-find-file-map
         ("C-h" . counsel-up-directory)

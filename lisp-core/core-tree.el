@@ -22,6 +22,11 @@
   (require 'core-package)
 )
 
+;; C-c C-n Create a file or create a directory if filename ends with a ‘/’
+;; C-c C-d Delete a file or a directory.
+;;C-c C-r Rename a file or a directory.
+;; C-c C-c Change the root directory.
+;; C-c C-p Copy a file or a directory.
 (use-package neotree
     :defer t
     :commands neo-global--window-exists-p

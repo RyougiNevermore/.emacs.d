@@ -1,9 +1,9 @@
-;; core-util.el	-*- lexical-binding: t -*-
+;; mode-Search.el	-*- lexical-binding: t -*-
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
-;;             Utils.
+;;             search.
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -15,23 +15,23 @@
 ;;
 ;;; Code:
 
-
 (eval-when-compile
   (require 'core-const)
   (require 'core-custom)
-  (require 'core-package))
-
-
-(use-package page-break-lines
-    :config
-    (global-page-break-lines-mode)
-    (set-fontset-font "fontset-default"
-                  (cons page-break-lines-char page-break-lines-char)
-                  (face-attribute 'default :family))
+  (require 'core-package)
 )
 
-(provide 'core-util)
+(use-package ag
+  :init
+  (with-eval-after-load 'projectile
+    (bind-key "s s" 'ag-project projectile-command-map))
+  :config
+  (setq ag-highlight-search t)
+  (setq ag-reuse-buffers t)
+)
+
+(provide 'mode-search)
 
 ;;----------------------------------------------------------------------------
-;; core-util.el ends here
+;; mode-search.el ends here
 ;;----------------------------------------------------------------------------

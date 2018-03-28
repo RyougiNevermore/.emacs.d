@@ -46,6 +46,8 @@
   (bind-key* "s-a" 'mark-whole-buffer)
   ;; save buffer
   (bind-key* "s-s" 'save-buffer)
+  ;; save as another
+  (bind-key* "s-S-s" 'write-file)
   ;; copy
   (bind-key* "s-c" 'kill-ring-save)
   ;; paste

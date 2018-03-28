@@ -39,12 +39,74 @@
     :config   
     (evil-leader/set-leader my-evil-leader-key)
     ;; bind files keys
-    (which-key-add-key-based-replacements (concat my-evil-leader-key  " f") "files")
+    (which-key-add-key-based-replacements (concat my-evil-leader-key  " f") "Files")
     (evil-leader/set-key
-        "ff" 'find-file 
-        ;; TODO: ADD MORE KEYS 
-        ;; https://github.com/emacs-evil/evil-collection/blob/master/evil-collection.el
-        ;; add ivy keys
+        "ff"  'counsel-find-file
+        "fL"  'counsel-locate
+        "fr" 'counsel-recentf
+        "fs" 'swiper
+        "fS" 'counsel-ag
+        "fG" 'counsel-grep
+        "fd" 'dired-jump
+
+    )
+    ;; neotree
+    (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
+    (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
+    (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
+    (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
+    (which-key-add-key-based-replacements (concat my-evil-leader-key  " t") "Neo tree")
+    (evil-leader/set-key-for-mode 'neotree-mode 
+        "tr" 'neotree-change-root
+        "tg" 'neotree-refresh
+        "tc" 'neotree-create-node
+        "td" 'neotree-delete-node
+        "tn" 'neotree-rename-node
+        "tp" 'neotree-copy-node
+    )
+
+    ;; bind help
+    (which-key-add-key-based-replacements (concat my-evil-leader-key  " h") "Helps")
+    (evil-leader/set-key
+        "hf"  'counsel-describe-function
+        "hv"  'counsel-describe-variable
+        "hk" 'counsel-descbinds
+        "hf" 'counsel-describe-face
+        
+        
+    )
+    ;; buffer
+    (which-key-add-key-based-replacements (concat my-evil-leader-key  " b") "Buffer")
+    (evil-leader/set-key
+        "bb" 'switch-to-buffer
+        "bk" 'kill-buffer
+        "br" 'revert-buffer
+        "bi" 'ibuffer
+
+    )
+    ;; window
+    (which-key-add-key-based-replacements (concat my-evil-leader-key  " w") "Window")
+    (which-key-add-key-based-replacements (concat my-evil-leader-key  " w s") "Window split")
+    (evil-leader/set-key
+        "wq" 'quit-window
+        "w0" 'delete-other-windows
+        "w1" 'select-window-1
+        "w2" 'select-window-2
+        "w3" 'select-window-3
+        "w4" 'select-window-4
+        "w5" 'select-window-5
+        "w6" 'select-window-6
+        "w7" 'select-window-7
+        "w8" 'select-window-8
+        "w9" 'select-window-9
+        "wsr" 'split-window-right
+        "wsb" 'split-window-below
+        
+    )
+    ;; project
+    (which-key-add-key-based-replacements (concat my-evil-leader-key  " p") "Project")
+    (evil-leader/set-key
+        "pf" 'projectile-find-file
     )
 )
 

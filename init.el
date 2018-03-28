@@ -103,6 +103,12 @@
 ;; Which key
 (require 'mode-which-key)
 
+;; Search (ag)
+(require 'mode-search)
+
+;; Ibuffer
+(require 'mode-ibuffer)
+
 ;; Projectile
 (require 'mode-projectile)
 

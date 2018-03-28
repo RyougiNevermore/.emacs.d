@@ -76,8 +76,6 @@
                 ("C-c x" . quickrun))
 )
 
-(use-package powershell)
-(use-package csharp-mode)
 (use-package dockerfile-mode :mode "Dockerfile\\'")
 (use-package vimrc-mode)
 

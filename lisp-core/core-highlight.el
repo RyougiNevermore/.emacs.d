@@ -77,7 +77,7 @@
               ("C-c t p" . hl-todo-previous)
               ("C-c t n" . hl-todo-next)
               ("C-c t o" . hl-todo-occur))
-  :init (add-hook 'after-init-hook #'global-hl-todo-mode)
+  :init (add-hook 'prog-mode-hook #'global-hl-todo-mode)
 )
 
 ;; Highlight uncommitted changes
