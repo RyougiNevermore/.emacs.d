@@ -96,6 +96,9 @@
 ;; Functions
 (require 'core-func)
 
+;; Util
+(require 'core-util)
+
 ;;----------------------------------------------------------------------------
 ;; Mode
 ;;----------------------------------------------------------------------------
@@ -146,10 +149,26 @@
 ;; Lang
 ;;----------------------------------------------------------------------------
 
+;; ORG
+(require 'lang-org)
+
+;; Markdown
+(require 'lang-markdown)
+
+;; Lsp
+(require 'lang-lsp)
+
 ;; GO
 (require 'lang-go)
 
+;; C/Cpp
+(require 'lang-c)
+
+;; Python
+(require 'lang-python)
+
 ;; WEB
+(require 'lang-web)
 
 ;; NODEJS
 

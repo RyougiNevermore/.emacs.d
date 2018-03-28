@@ -52,6 +52,7 @@
     (which-key-add-key-based-replacements (concat my-evil-leader-key  " X") "system")
     (evil-leader/set-key
         "Xr"  ' restart-emacs
+        "Xp" 'paradox-list-packages
     )
     ;; neotree
     (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
@@ -75,6 +76,8 @@
         "hv"  'counsel-describe-variable
         "hk" 'counsel-descbinds
         "hf" 'counsel-describe-face
+        "hm" 'discover-my-major  
+        "hM" 'discover-my-mode
         
         
     )
@@ -116,6 +119,14 @@
       "#n" 'comment-tags-next-tag
       "#p" 'comment-tags-previous-tag
     )
+
+    ;; Youdao
+    (which-key-add-key-based-replacements (concat my-evil-leader-key  " D") "Youdao Dictionay")
+    (evil-leader/set-key
+      "Dy" 'youdao-dictionary-search-at-point
+      "Dy" 'youdao-dictionary-search-at-point-tooltip
+    )
+
 )
 
 (use-package evil-anzu

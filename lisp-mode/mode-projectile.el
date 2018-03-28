@@ -62,6 +62,7 @@
     (which-key-add-key-based-replacements (concat my-evil-leader-key  " p") "Project")
     (evil-leader/set-key
         "pf" 'projectile-find-file
+        "ps" 'ag-project projectile-command-map
     )
   )
 )
