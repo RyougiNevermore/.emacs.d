@@ -45,20 +45,6 @@
         )
     )
 
-    ;; Go support for lsp-mode using Sourcegraph's Go Language Server
-    ;; Install: go get github.com/sourcegraph/go-langserver
-    (use-package lsp-go
-        :commands lsp-go-enable
-        :init (add-hook 'go-mode-hook #'lsp-go-enable)
-    )
-
-    ;; Python support for lsp-mode using pyls.
-    ;; Install: pip install python-language-server
-    (use-package lsp-python
-        :commands lsp-python-enable
-        :init (add-hook 'python-mode-hook #'lsp-python-enable)
-    )
-
 )
 
 (provide 'lang-lsp)
