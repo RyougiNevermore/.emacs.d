@@ -223,12 +223,6 @@
   (global-set-key [remap fill-paragraph] #'unfill-toggle)
 )
 
-;; Framework for mode-specific buffer indexes
-(use-package imenu
-  :ensure nil
-  :bind (("C-." . imenu))
-)
-
 ;; Edit multiple regions in the same way simultaneously
 (use-package iedit
   :bind (("C-;" . iedit-mode)
