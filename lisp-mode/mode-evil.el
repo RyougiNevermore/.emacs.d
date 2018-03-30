@@ -52,6 +52,7 @@
     (which-key-add-key-based-replacements (concat my-evil-leader-key  " X") "system")
     (evil-leader/set-key
         "Xr"  ' restart-emacs
+        "Xq" 'save-buffers-kill-terminal 
         "Xp" 'paradox-list-packages
     )
     ;; neotree
